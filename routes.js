@@ -40,5 +40,13 @@ module.exports = {
       res.render('examples/elements/forms', {'assetPath' : assetPath });
     });
 
+    app.get('/start_scenario1', function (req, res) {
+      res.render('start_scenario1',
+                {'assetPath' : assetPath});
+
+    });
+
+
+
   }
 };
