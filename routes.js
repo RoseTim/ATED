@@ -40,11 +40,51 @@ module.exports = {
       res.render('examples/elements/forms', {'assetPath' : assetPath });
     });
 
-    app.get('/start_scenario1', function (req, res) {
-      res.render('start_scenario1',
+    
+
+    /* ATED pages */
+
+
+    app.get('/start', function (req, res) {
+      res.render('start',
                 {'assetPath' : assetPath});
 
     });
+
+    app.get('/your_account', function (req, res) {
+      res.render('your_account',
+                {'assetPath' : assetPath});
+
+    });
+
+    app.get('/year_summary', function (req, res) {
+      res.render('year_summary',
+                {'assetPath' : assetPath});
+
+    });
+
+    app.get('/edit_property_details', function (req, res) {
+      res.render('edit_property_details',
+                {'assetPath' : assetPath});
+
+    });
+
+
+    app.get('/claim_relief', function (req, res) {
+      res.render('claim_relief',
+                {'assetPath' : assetPath});
+
+    });
+
+    app.get('/new_property_details', function (req, res) {
+      res.render('new_property_details',
+                {'assetPath' : assetPath});
+
+    });
+
+
+    
+
 
 
 

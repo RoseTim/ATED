@@ -1,0 +1,237 @@
+{{<layout}}
+
+{{$pageTitle}}Submit end of year return{{/pageTitle}}
+{{$afterHeader}}
+   
+{{/afterHeader}}
+
+{{$content}}
+  {{>alpha_banner}}
+  {{>hmrc_banner}}
+
+
+
+<main id="content" role="main">
+   
+<div class="outer-block">
+  <div class="inner-block">
+  <!-- main content starts -->
+   {{>sub_header_CSOP}}
+<h1 class="heading-large">Property details</h1>
+ <!-- radio buttons start -->
+          <p class="text">Choose the spreadsheets that you want to upload as part of your end of year Company Share Option Plan return.</p>
+
+          <form action="" method="post" class="form">
+            <fieldset>
+              <legend></legend>
+              
+              
+            <!--div5  start--><div class="form-group">
+            <label for="company-address1" class="form-label"><span class="bold-small">Address</span></label>
+              <input type="text" class="form-control" id="company-address1" >
+            <label for="company-address2" class="form-label"></label>
+              <input type="text" class="form-control" id="company-address2" >
+              <label for="company-address3" class="form-label"></label>
+              <input type="text" class="form-control" id="company-address2" >
+              <label for="company-address3" class="form-label"></label>
+              <input type="text" class="form-control" id="company-address2">
+            <!--div5  end--></div>
+            <div class="form-group">
+          <label for="postcode-name" class="form-label"><span class="bold-small">Postcode</span></label>
+              <input type="text" class="form-control-1-8" id="postcode-name" maxlength="8">
+            <!--div7  end--></div> 
+            <!--div6  start-->
+            
+            <p class="text"></p>
+            
+           
+<!-- Date of aquisition -->
+    <div class="form-group">
+      <fieldset>
+        <legend class="bold-small">Date of aquisition</legend>
+
+        <div class="form-block">
+       
+        <label class="form-hint">This is the date which your blah blah blah.</label>
+        <div class="date-of-birth">
+          <div class="form-group">
+            <label>Day</label>
+            <input type="text" maxlength="2">  
+          </div>
+          <div class="form-group">
+            <label>Month</label>
+            <input type="text" maxlength="2">  
+          </div>
+           <div class="form-group">
+            <label>Year</label>
+            <input type="text" maxlength="2">  
+          </div>
+        </div>
+      </div>
+
+
+
+ <!-- Use .form-group to create spacing when wrapping label and input pairs -->
+  <div class="form-group">
+    <label class="form-label"><span class="bold-small">Value at aquisition</span></label>
+    <input class="form-control" id="first-name-2" type="text">
+  </div>
+
+  <div class="form-group">
+    <label class="form-label"><span class="bold-small">Actual value of dwelling</span></label>
+    <input class="form-control" id="last-name-2" type="text">
+  </div>
+
+     
+<!-- Date of valuation -->
+    <div class="form-group">
+      <fieldset>
+        <legend class="bold-small">Date of valuation</legend>
+
+        <div class="form-block">
+       
+        <label class="form-hint">This is the date which your blah blah blah.</label>
+        <div class="date-of-birth">
+          <div class="form-group">
+            <label>Day</label>
+            <input type="text" maxlength="2">  
+          </div>
+          <div class="form-group">
+            <label>Month</label>
+            <input type="text" maxlength="2">  
+          </div>
+           <div class="form-group">
+            <label>Year</label>
+            <input type="text" maxlength="2">  
+          </div>
+        </div>
+      </div>
+
+
+
+
+        
+
+
+<div class="grid-wrapper">
+    <div class="grid grid-2-3">
+      <div class="inner-block">
+
+
+<form>
+  <input id="input-file-name" type="file" name="file[]" style="display:none;" multiple/>
+</form>
+
+ <div class="inner-block" style="display:none;" id="fileDiv">
+  
+ </div>
+
+
+
+
+   <br>
+             
+            </p>    
+        
+          <div class="inner-block">
+          <br>
+              <a class="button" href="year_summary">Save and continue</a>
+            </p>    
+          </form>
+          <p class="text"><a href="year_summary">Back</a></p>
+        </div>
+</div>
+</div>
+
+
+<script>
+
+function GetIEVersion() {  
+  var sAgent = window.navigator.userAgent;  
+  var Idx = sAgent.indexOf("MSIE");  
+  // If IE, return version number.  
+  if (Idx > 0)   
+    return parseInt(sAgent.substring(Idx+ 5, sAgent.indexOf(".", Idx)));     
+    // If IE 11 then look for Updated user agent string.  
+  else if (!!navigator.userAgent.match(/Trident\/7\./))   
+    return 11;  
+  else 
+    return 0; //It is not IE  
+}  
+
+
+
+
+
+$("#choose-file-button").click(function(e) {
+  $("#input-file-name").click();
+});
+
+$("#input-file-name").change(function(e) {
+    $("#fileDiv").show();       
+    // Is IE then check version
+    if ((GetIEVersion() > 9) || (GetIEVersion() == 0)) {
+        var numberOfFiles = $("#input-file-name").get(0).files.length;
+        for (i=0; i<numberOfFiles; i++) {
+        $("#fileTable").append("<tr><td>"+$("#input-file-name").get(0).files.item(i).name+"</td><td>Ready to upload</td><td><a href='javascript:void(0);' id='removeFile'>Remove file</a></td></tr>"); 
+        }            
+    } else {
+        // Earlier versions of IE (<9)
+        var fileName = $("#input-file-name").val();
+        $("#fileTable").append("<tr><td>"+fileName+"</td><td>Ready to upload</td><td><a href='javascript:void(0);' id='removeFile'>Remove file</a></td></tr>");                                            
+    }
+});        
+
+$("#fileTable").on('click', '#removeFile', function() {
+  $(this).parent().parent().remove();
+  var rowcount = $("#fileTable").prop('rows').length;
+  if (rowcount == 1) {
+    $("#fileDiv").hide();
+  }
+});
+
+function getUrlVars() {
+  var vars = [], hash;
+  var hashes = window.location.href.slice(window.location.href.indexOf('?')+1).split('&');
+  for (var i=0; i<hashes.length; i++) {
+    hash = hashes[i].split('=');
+    vars.push(hash[0]);
+    vars[hash[0]]=hash[1];
+  }
+  return vars;
+}
+
+$(document).ready(function(){
+    //alert(getUrlVars()["radio-group"]);
+    $("h1").html("Upload your "+ getUrlVars()["radio-group"] +" spreadsheet");
+    $("#fileType").html("You've told us your spreadsheets are "+ getUrlVars()["radio-group"] +" files. If you're uploading multiple spreadsheets they must all be the same file type . ")
+})
+
+
+
+</script>
+
+<div class="grid grid-1-3">
+      <!--<div class="inner-block"><a href="">Remove all files</a>
+      </div>-->
+      </div>
+    </div>
+     <!--<div class="inner-block">
+      <table style="width: 80%;">
+        <tr><th>File name</th><th>Status</th><th>Action</th></tr>
+        <tr><td>ExampleCompanyCSOP1.ods</td><td>Ready to upload</td><td><a href="">Remove file</td></tr>
+       <tr><td>ExampleCompanyCSOP1.jpg</td><td><span style="color: #DF3034">You must choose another ODS file</span></td><td><a href="">Remove file</td></tr>
+      </table>-->
+   
+    
+         
+        </div>
+
+
+
+ <!-- main content ends -->
+
+</main>
+{{/content}}
+
+{{/layout}}
