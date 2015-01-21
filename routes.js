@@ -82,6 +82,43 @@ module.exports = {
 
     });
 
+    app.get('/declaration', function (req, res) {
+      res.render('declaration',
+                {'assetPath' : assetPath});
+
+    });
+
+    app.get('/thankyou', function (req, res) {
+      res.render('thankyou',
+                {'assetPath' : assetPath});
+
+    });
+
+    app.get('/ATED_summary_1', function (req, res) {
+      res.render('ATED_summary_1',
+                {'assetPath' : assetPath});
+
+    });
+
+    app.get('/ATED_summary_2', function (req, res) {
+      res.render('ATED_summary_2',
+                {'assetPath' : assetPath});
+
+    });
+
+    app.get('/ATED_summary_3', function (req, res) {
+      res.render('ATED_summary_3',
+                {'assetPath' : assetPath});
+
+    });
+
+    app.get('/ATED_summary_4', function (req, res) {
+      res.render('ATED_summary_4',
+                {'assetPath' : assetPath});
+
+    });
+
+
 
     
 
